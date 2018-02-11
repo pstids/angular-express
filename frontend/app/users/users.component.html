@@ -1,0 +1,33 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Users</h1>
+  </div>
+  <br>
+  <div class="container">
+    <ul class="users">
+      <li *ngFor="let user of users">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              {{user.id}}: {{user.name | uppercase}}
+            </p>
+            <a href="#" class="card-header-icon" aria-label="more options">
+              <span class="icon" (click)="toggleUser(user)">
+                <i class="fa" [ngClass]="user==selectedUser ? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+              </span>
+            </a>
+          </header>
+          <div *ngIf="selectedUser==user">
+            <div class="card-content">
+              <div class="content">
+                Name: {{user.name}}<br>
+                DoB: {{user.dob}}<br>
+                Address: {{user.address}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
